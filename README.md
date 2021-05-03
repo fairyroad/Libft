@@ -1,10 +1,6 @@
 
-<!--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">--->
-body		{ font-family: 'NanumSquare', sans-serif; }
-.normal		{ font-weight: 400 }
-.bold		{ font-weight: 700 }
-.bolder		{ font-weight: 800 }
-.light		{ font-weight: 300 }
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css">
+
 
 :blush: 첫번째 프로젝트 -- > Libft
 
