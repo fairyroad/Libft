@@ -4,7 +4,7 @@
 
 :blush: 첫번째 프로젝트 -- > Libft
 
-:swimmer:Start date : 2021/05/04(Tue)
+:swimmer:Start date : 2021/05/06(THUR)
 
 
     나만의 C Library 만들기
