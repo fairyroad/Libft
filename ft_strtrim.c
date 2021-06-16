@@ -6,13 +6,13 @@
 /*   By: ygil <ygil@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:49:53 by ygil              #+#    #+#             */
-/*   Updated: 2021/06/16 14:55:29 by ygil             ###   ########.fr       */
+/*   Updated: 2021/06/16 15:08:17 by ygil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t  ft_strlen(const char *s)
+static size_t   ft_strlen(const char *s)
 {
     size_t  num;
 
@@ -22,7 +22,7 @@ size_t  ft_strlen(const char *s)
     return (num);
 }
 
-char    *ft_strchr(const char *str, int c)
+static char     *ft_strchr(const char *str, int c)
 {
     int     i;
 
@@ -38,7 +38,7 @@ char    *ft_strchr(const char *str, int c)
     return (0);
 }
 
-char    *ft_strtrim(char const *s1, char const *set)
+char            *ft_strtrim(char const *s1, char const *set)
 {
     int     start;
     int     end;
@@ -46,7 +46,7 @@ char    *ft_strtrim(char const *s1, char const *set)
     char    *tmp;
 
     start = 0;
-    end = ft_strlen(s1);
+    end = ft_strlen(s1) - 1;
     i = 0;
     while (s1[start] && ft_strchr(set, s1[start]))
         start++;
@@ -55,7 +55,7 @@ char    *ft_strtrim(char const *s1, char const *set)
     if (!(tmp = (char*)malloc(sizeof(char*) * (end - start + 1))))
         return (NULL);
     while (start <= end)
-        tmp[i] = s1[start];
+        tmp[i++] = s1[start++];
     tmp[i] = '\0';
     return (tmp);
 }
