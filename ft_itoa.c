@@ -40,9 +40,9 @@ char        *ft_itoa(int n)
     char    *tmp;
 
     if (n == 0)
-        return ("0\0");
+        return ("(char*)0");
     else if (n == -2147483648)
-        return ("-2147483648\0");
+        return ("(char*)-2147483648");
     flag = check_sign(n);
     num = number_of_digits(n) + flag;
     if (!(tmp = (char*)malloc(sizeof(char) * num + 1)))
