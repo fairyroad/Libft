@@ -45,12 +45,17 @@ SRCS_B = ft_substr.c \
          ft_putstr_fd.c \
          ft_putendl_fd.c \
          ft_putnbr_fd.c
+        
+SRCS_BONUS = ft_lstnew.c \
+
 
 SRCS = $(SRCS_A) \
        $(SRCS_B)
 
 
 OBJS = $(SRCS:.c=.o)
+
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 
 all : $(NAME)
@@ -60,7 +65,7 @@ all : $(NAME)
     $(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-    $(RM) $(RMFLAG) $(OBJS)
+    $(RM) $(RMFLAG) $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
     $(RM) $(RMFLAG) $(NAME)
@@ -69,5 +74,8 @@ re : fclean all
 
 $(NAME) : $(OBJS)
     $(AR) $(ARFLAG) $@ $^
+
+bonus : $(OBJS) $(OBJS_BONUS)
+        $(AR) $(ARFLAG) $(NAME) $^
 
 .PHONY : all clean fclean re
