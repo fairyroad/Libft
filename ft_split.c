@@ -170,6 +170,8 @@ char** ft_split(char const* s, char c)
     int     end;
     int     start;
 
+    if (!s)
+		return (NULL);
     cnt = cnt_arraysize(s, c);
     if (!(tmp = (char**)malloc(sizeof(char*) * cnt + 1)))
         return (NULL);
