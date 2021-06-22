@@ -6,56 +6,28 @@
 /*   By: ygil <ygil@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:49:53 by ygil              #+#    #+#             */
-/*   Updated: 2021/06/16 15:08:17 by ygil             ###   ########.fr       */
+/*   Updated: 2021/06/22 18:52:52 by ygil             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t   ft_strlen(const char *s)
-{
-    size_t  num;
-
-    num = 0;
-    while (s[num])
-        num++;
-    return (num);
-}
-
-static char     *ft_strchr(const char *str, int c)
-{
-    int     i;
-
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] == c)
-            return ((char *)str + i);
-        i++;
-    }
-    if (str[i] == c)
-        return ((char *)str + i);
-    return (0);
-}
-
 char            *ft_strtrim(char const *s1, char const *set)
 {
     int     start;
     int     end;
-    int     i;
     char    *tmp;
 
+    if (!s1 || !set)
+        return (NULL);
     start = 0;
-    end = ft_strlen(s1) - 1;
-    i = 0;
+    end = ft_strlen(s1);
     while (s1[start] && ft_strchr(set, s1[start]))
         start++;
-    while (s1[end] && ft_strchr(set, s1[end]) && start < end)
+    while (s1[end - 1] && ft_strchr(set, s1[end - 1]) && start < end)
         end--;
-    if (!(tmp = (char*)malloc(sizeof(char*) * (end - start + 1))))
+    if (!(tmp = (char*)malloc(sizeof(char) * (end - start + 1))))
         return (NULL);
-    while (start <= end)
-        tmp[i++] = s1[start++];
-    tmp[i] = '\0';
+    ft_strlcpy(tmp, &s1[start], end - start + 1);
     return (tmp);
 }
